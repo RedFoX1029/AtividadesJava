@@ -1,0 +1,33 @@
+# Define que este é o arquivo .editorconfig raiz. 
+# Se `root = true`, o EditorConfig não procurará arquivos .editorconfig em diretórios superiores.
+root = true
+
+# Configurações que serão aplicadas a todos os arquivos no projeto
+[*]
+# Define o estilo de indentação como espaços (ao invés de tabulações).
+indent_style = tab
+
+# Define o tamanho da indentação como 4 espaços.
+indent_size = tab
+
+# Define o tipo de terminação de linha como `lf` (line feed), 
+# comum em sistemas Unix/Linux e recomendado para projetos multiplataforma.
+end_of_line = lf
+
+# Define a codificação de caracteres como UTF-8.
+charset = utf-8
+
+# Remove espaços em branco ao final de cada linha automaticamente ao salvar o arquivo.
+trim_trailing_whitespace = true
+
+# Garante que o arquivo termine com uma nova linha.
+insert_final_newline = true
+
+# Define uma guia para quebra de linha no editor
+max_line_length = 100
+
+# Configurações específicas para arquivos com a extensão .java
+[*.java]
+# Define o tamanho da indentação para arquivos .java especificamente como 4 espaços,
+# mesmo que possa ser diferente para outros tipos de arquivos.
+indent_size = 4
