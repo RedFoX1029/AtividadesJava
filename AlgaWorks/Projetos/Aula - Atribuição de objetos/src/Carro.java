@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 public class Carro {
     String fabricante;
     String modelo;
@@ -20,3 +21,12 @@ public class Carro {
         return valorRevenda;
     }
 }
+=======
+public class Carro {
+    String fabricante;
+    String modelo;
+    String cor;
+    int anoFabricacao;
+    Pessoa proprietario;
+}
+>>>>>>> c515da5664a9b66af20af997c5f0fa0ae01b8125
