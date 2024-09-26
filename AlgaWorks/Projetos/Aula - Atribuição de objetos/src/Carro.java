@@ -6,8 +6,22 @@ public class Carro {
     double precoCompra;
     Pessoa proprietario;
 
+    int calcularTempoDeUsoEmAnos() {
+        return 2022 - anoFabricacao;
+    }
+
+    double calcularIpva() {
+        int tempoDeUso = calcularTempoDeUsoEmAnos();
+
+        if (tempoDeUso >= 10) {
+            return 0;
+        }
+
+        return calcularValorRevenda() * 0.04;
+    }
+
     double calcularValorRevenda() {
-        int tempoDeUsoAnos = 2022 - anoFabricacao;
+        int tempoDeUsoAnos = calcularTempoDeUsoEmAnos();
         int vidaUtilEmAnos = 20;
 
         double valorRevenda = (precoCompra / vidaUtilEmAnos)

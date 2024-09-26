@@ -13,7 +13,7 @@ public class Principal {
         meuCarro.modelo = "HR-V";
         meuCarro.precoCompra = 127000;
         meuCarro.proprietario = levi;
-        int tempoDeUsoAnosMeuCarro = 2022 - meuCarro.anoFabricacao;
+        int tempoDeUsoAnosMeuCarro = meuCarro.calcularTempoDeUsoEmAnos();
         double valorRevendaMeuCarro = meuCarro.calcularValorRevenda();
         //endregion
 
@@ -30,13 +30,9 @@ public class Principal {
         seuCarro.modelo = "HB-20";
         seuCarro.precoCompra = 29000;
         seuCarro.proprietario = fulano;
-        int tempoDeUsoAnosSeuCarro = 2022 - seuCarro.anoFabricacao;
+        int tempoDeUsoAnosSeuCarro = seuCarro.calcularTempoDeUsoEmAnos();
         double valorRevendaSeuCarro = seuCarro.calcularValorRevenda();
         //endregion
-
-//        meuCarro.proprietario.nome = "Levi Nicola";
-//        meuCarro.proprietario.cpf = "111.222.333-83";
-//        meuCarro.proprietario.anoNascimento = 2005;
 
         System.out.println("\n-------------- Características do Carro --------------");
 
@@ -62,9 +58,11 @@ public class Principal {
         System.out.println("Meu carro:");
         System.out.printf("Tempo de uso (anos): %d%n", tempoDeUsoAnosMeuCarro);
         System.out.printf("Valor de revenda: %6.2f%n", valorRevendaMeuCarro);
+        System.out.printf("Valor do IPVA: %6.2f%n", meuCarro.calcularIpva());
         System.out.println("\nSeu carro:");
         System.out.printf("Tempo de uso (anos): %d%n", tempoDeUsoAnosSeuCarro);
         System.out.printf("Valor de revenda: %6.2f%n", valorRevendaSeuCarro);
+        System.out.printf("Valor do IPVA: %6.2f%n", seuCarro.calcularIpva());
         System.out.println("--------------------------------------------------------");
     }
 }
