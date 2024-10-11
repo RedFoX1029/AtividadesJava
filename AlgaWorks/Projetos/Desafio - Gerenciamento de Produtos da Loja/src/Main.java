@@ -23,8 +23,6 @@ public class Main {
         }
     }
     public static void menu() {
-        Scanner input = new Scanner(System.in);
-
         System.out.print("""
                   \nTabela de Produtos
                 [1] TV Philco 54 polegadas
