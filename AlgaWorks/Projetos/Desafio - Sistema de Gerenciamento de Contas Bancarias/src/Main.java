@@ -13,10 +13,10 @@ public class Main {
 
             try {
                 acao = sc.nextInt();
-                sc.nextLine(); // Consumir a linha restante
+                sc.nextLine();
             } catch (InputMismatchException e) {
                 System.out.println("Entrada inválida. Por favor, digite um número.");
-                sc.nextLine(); // Limpar o buffer de entrada
+                sc.nextLine();
                 continue;
             }
 
@@ -28,10 +28,10 @@ public class Main {
                 double saldoInicial;
                 try {
                     saldoInicial = sc.nextDouble();
-                    sc.nextLine(); // Consumir a linha restante
+                    sc.nextLine();
                 } catch (InputMismatchException e) {
                     System.out.println("Entrada inválida. Por favor, digite um valor numérico para o saldo.");
-                    sc.nextLine(); // Limpar o buffer de entrada
+                    sc.nextLine();
                     continue;
                 }
 
@@ -51,7 +51,7 @@ public class Main {
                             sc.nextLine();
                         } catch (InputMismatchException e) {
                             System.out.println("Entrada inválida. Por favor, digite um valor numérico para depósito.");
-                            sc.nextLine(); // Limpar o buffer de entrada
+                            sc.nextLine();
                             continue;
                         }
                         conta1.depositar(novoDeposito);
@@ -64,7 +64,7 @@ public class Main {
                             sc.nextLine();
                         } catch (InputMismatchException e) {
                             System.out.println("Entrada inválida. Por favor, digite um valor numérico para saque.");
-                            sc.nextLine(); // Limpar o buffer de entrada
+                            sc.nextLine();
                             continue;
                         }
                         conta1.sacar(novoSaque);
