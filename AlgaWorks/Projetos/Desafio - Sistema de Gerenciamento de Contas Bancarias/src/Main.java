@@ -1,51 +1,80 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Conta conta1 = null;
-        int acao;
+        int acao = 0;
 
         while (true) {
             menu();
             System.out.println("Digite a ação: ");
-            acao = sc.nextInt();
-            sc.nextLine();
+
+            try {
+                acao = sc.nextInt();
+                sc.nextLine(); // Consumir a linha restante
+            } catch (InputMismatchException e) {
+                System.out.println("Entrada inválida. Por favor, digite um número.");
+                sc.nextLine(); // Limpar o buffer de entrada
+                continue;
+            }
 
             if (acao == 1) {
                 System.out.println("Digite o nome do titular: ");
                 String titular = sc.nextLine();
                 System.out.println("Digite o saldo inicial: ");
-                double saldoInicial = sc.nextDouble();
-                sc.nextLine();
+
+                double saldoInicial;
+                try {
+                    saldoInicial = sc.nextDouble();
+                    sc.nextLine(); // Consumir a linha restante
+                } catch (InputMismatchException e) {
+                    System.out.println("Entrada inválida. Por favor, digite um valor numérico para o saldo.");
+                    sc.nextLine(); // Limpar o buffer de entrada
+                    continue;
+                }
+
                 conta1 = new Conta(titular, saldoInicial);
-            }
-            else if (conta1 != null && acao != 5) {
-                if (acao == 2) {
-                    System.out.println("\nDigite o valor que deseja depositar: ");
-                    double novoDeposito = sc.nextDouble();
-                    sc.nextLine();
-                    conta1.depositar(novoDeposito);
-                }
-                else if (acao == 3) {
-                    System.out.println("\nDigite o valor que deseja sacar: ");
-                    double novoSaque = sc.nextDouble();
-                    sc.nextLine();
-                    conta1.sacar(novoSaque);
-                }
-                else if (acao == 4) {
-                    System.out.println(" ");
-                    conta1.mostrarSaldo();
-                }
-                else {
-                    System.out.println("Valor inválido. Tente novamente.\n");
-                }
-            }
-            else if (acao == 5) {
-                break; // Sai do loop atual. Para encerrar o programa completamente, use "System.exit(0);"
-            }
-            else {
+            } else if (acao == 5) {
+                System.out.println("Saindo do sistema...");
+                break;
+            } else if (conta1 == null) {
                 System.out.println("\nConta inexistente. Crie uma nova conta.");
+            } else {
+                switch (acao) {
+                    case 2 -> {
+                        System.out.println("\nDigite o valor que deseja depositar: ");
+                        double novoDeposito;
+                        try {
+                            novoDeposito = sc.nextDouble();
+                            sc.nextLine();
+                        } catch (InputMismatchException e) {
+                            System.out.println("Entrada inválida. Por favor, digite um valor numérico para depósito.");
+                            sc.nextLine(); // Limpar o buffer de entrada
+                            continue;
+                        }
+                        conta1.depositar(novoDeposito);
+                    }
+                    case 3 -> {
+                        System.out.println("\nDigite o valor que deseja sacar: ");
+                        double novoSaque;
+                        try {
+                            novoSaque = sc.nextDouble();
+                            sc.nextLine();
+                        } catch (InputMismatchException e) {
+                            System.out.println("Entrada inválida. Por favor, digite um valor numérico para saque.");
+                            sc.nextLine(); // Limpar o buffer de entrada
+                            continue;
+                        }
+                        conta1.sacar(novoSaque);
+                    }
+                    case 4 -> {
+                        System.out.println(" ");
+                        conta1.mostrarSaldo();
+                    }
+                    default -> System.out.println("Valor inválido. Tente novamente.\n");
+                }
             }
         }
     }
