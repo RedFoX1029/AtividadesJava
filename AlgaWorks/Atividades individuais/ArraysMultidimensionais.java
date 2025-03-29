@@ -1,6 +1,4 @@
-import java.util.Collections;
 import java.util.Scanner;
-import java.util.Arrays;
 
 public class ArraysMultidimensionais {
 	public static void main(String[] args) {
